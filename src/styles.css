@@ -1,0 +1,18 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.search-bar {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.search-bar label {
+  padding-right: 10px;
+}

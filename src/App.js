@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import { fetchData } from "./utils";
+import Table from "./Table";
+import SearchBar from "./SearchBar";
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true
+    };
+  }
+
+  componentDidMount() {
+    Promise.all([
+      fetchData("bookings"),
+      fetchData("sellers"),
+      fetchData("products")
+    ]).then(response => {
+      this.props.populateData({
+        bookings: response[0].data,
+        sellers: response[1].data,
+        products: response[2].data
+      });
+      this.setState({ isLoading: false });
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.isLoading ? (
+          "Loading..."
+        ) : (
+          <>
+            <SearchBar />
+            <Table />
+          </>
+        )}
+      </div>
+    );
+  }
 }
 
-export default App;
+const ConnectedApp = connect(
+  null,
+  disaptch => ({
+    populateData: data => disaptch({ type: "LOAD_DATA", data })
+  })
+)(App);
+
+export default ConnectedApp;
