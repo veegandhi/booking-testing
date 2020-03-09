@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row should render Row 1`] = `
+"<Row id=\\"booking-1\\" product={{...}} quantity={2000}>
+  <tr>
+    <th scope=\\"row\\">
+      <Connect(Checkbox) id=\\"booking-1\\">
+        <Checkbox id=\\"booking-1\\" checked={false} updateSelection={[Function: updateSelection]}>
+          <input type=\\"checkbox\\" checked={false} onChange={[Function: updateSelection]} />
+        </Checkbox>
+      </Connect(Checkbox)>
+    </th>
+    <td className=\\"id\\">
+      booki
+    </td>
+    <td className=\\"name\\">
+      Medium Desktop Run of Section ATF Interstitial
+    </td>
+    <td className=\\"seller\\">
+      Kertzmann, Hodkiewicz and Koch
+    </td>
+    <Connect(Editor) updateKey=\\"quantity\\" id=\\"booking-1\\" value={2000}>
+      <Editor updateKey=\\"quantity\\" id=\\"booking-1\\" value={2000} updateValue={[Function: updateValue]}>
+        <td>
+          <div className=\\"quantity\\" onClick={[Function: onClick]}>
+            2000
+          </div>
+        </td>
+      </Editor>
+    </Connect(Editor)>
+    <td className=\\"row-total\\">
+      $28000
+    </td>
+  </tr>
+</Row>"
+`;

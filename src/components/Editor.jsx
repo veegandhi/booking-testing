@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Editor = ({ value, updateValue }) => {
+const Editor = ({ value, updateValue, updateKey }) => {
   const [isEditing, setIsEditing] = React.useState(false);
   return (
     <td>
@@ -12,12 +12,12 @@ const Editor = ({ value, updateValue }) => {
           onBlur={() => setIsEditing(false)}
         />
       ) : (
-        <div onClick={() => setIsEditing(true)}>{value}</div>
+        <div className={updateKey} onClick={() => setIsEditing(true)}>{value}</div>
       )}
     </td>
   );
 };
-
+export { Editor as Component };
 const ConnectedEditor = connect(
   null,
   (dispatch, ownProps) => ({

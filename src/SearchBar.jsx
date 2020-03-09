@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import { connect } from "react-redux";
 import { getTotals } from "./utils";
 
@@ -8,7 +9,7 @@ const SearchBar = ({ searchText, setSearchText, selectedTotal, totals }) => {
       <div>
         <label>Selected Bookings</label> {selectedTotal}
       </div>
-      <div>
+      <div className="selection-totals">
         <label>Total Selection Amount</label> ${totals}
       </div>
       <div>

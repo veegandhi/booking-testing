@@ -5,19 +5,20 @@ import Checkbox from "./Checkbox";
 import Editor from "./Editor";
 
 const Row = ({ id, product, quantity }) =>
-  console.log("rowRendered") || (
+  console.log(id) || (
     <tr key={id}>
       <th scope="row">
         <Checkbox id={id} />
       </th>
-      <td>{id.slice(0, 5)}</td>
-      <td>{product.name} test 1</td>
-      <td>{product.seller.name}</td>
-      {/* <td>{quantity}</td> */}
+      <td className="id">{id.slice(0, 5)}</td>
+      <td className="name">{product.name}</td>
+      <td className="seller">{product.seller.name}</td>
       <Editor updateKey="quantity" id={id} value={quantity} />
-      <td>{`$${(quantity * product.rate) / 100}`}</td>
+      <td className="row-total">{`$${(quantity * product.rate) / 100}`}</td>
     </tr>
   );
+
+export { Row as Component };
 
 const makeGetBookingsById = (state, ownProps) => {
   const memoizedSelectorById = getBookingById(ownProps.bookingId);

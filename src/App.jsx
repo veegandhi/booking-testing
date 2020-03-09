@@ -44,6 +44,8 @@ class App extends React.Component {
   }
 }
 
+export { App as Component };
+
 const ConnectedApp = connect(
   null,
   disaptch => ({
